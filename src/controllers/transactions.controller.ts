@@ -84,3 +84,14 @@ export const getPastTwoDaysTransactions = async (_req: Request, res: Response) =
         res.status(500).json({ error: 'Failed to fetch transactions' });
     }
 };
+
+export const getWorkStaff = async (_req: Request, res: Response) => {
+  
+    try {
+        res.json({
+            message: "hello world"
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch transactions' });
+    }
+};
