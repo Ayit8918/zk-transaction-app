@@ -11,9 +11,9 @@ import {
 const router = Router();
 
 router.get('/', getPastTwoDaysTransactions);
-router.get('/custom', getCustomTransactions);
-router.get('/today', getTransactionsToday);
-router.get('/department/:deptName', getTransactionsByDept);
-router.get('/department/:deptName/name/:name', getTransactionsByDeptAndName);
+router.get('/CustomDateTransactions', getCustomTransactions);
+router.get('/TodayTransactions', getTransactionsToday);
+router.get('/Department/:deptName', getTransactionsByDept);
+router.get('/Department/:deptName/Name/:name', getTransactionsByDeptAndName);
 
 export default router;

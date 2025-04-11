@@ -4,6 +4,8 @@ import dayjs from 'dayjs';
 import { getTransactionsInRange, getTransactionsByDepartment, getTransactionsByDepartmentAndName } from '../services/transactions.service';
 import { fetchTransactions } from '../utils/fetchTransactions';
 
+
+// GET /Transactions/CustomDateTransactions?start&end
 export const getCustomTransactions = async (req: Request, res: Response) => {
     const { start, end } = req.query;
 
@@ -18,6 +20,8 @@ export const getCustomTransactions = async (req: Request, res: Response) => {
     }
 };
 
+
+// GET /Transactions/TodayTransactions
 export const getTransactionsToday = async (_req: Request, res: Response) => {
     const start = dayjs().startOf('day').format('YYYY-MM-DD HH:mm:ss');
     const end = dayjs().format('YYYY-MM-DD HH:mm:ss');
@@ -30,6 +34,8 @@ export const getTransactionsToday = async (_req: Request, res: Response) => {
     }
 };
 
+
+// GET /Transactions/Department/ :deptName
 export const getTransactionsByDept = async (req: Request, res: Response) => {
     const { deptName } = req.params;
     const start = dayjs().subtract(2, 'day').startOf('day').format('YYYY-MM-DD HH:mm:ss');
@@ -43,6 +49,7 @@ export const getTransactionsByDept = async (req: Request, res: Response) => {
     }
 };
 
+// GET /Transactions/Department/ :deptName /Name / :name
 export const getTransactionsByDeptAndName = async (req: Request, res: Response) => {
     const { deptName, name } = req.params;
     const start = dayjs().subtract(2, 'day').startOf('day').format('YYYY-MM-DD HH:mm:ss');
@@ -56,6 +63,7 @@ export const getTransactionsByDeptAndName = async (req: Request, res: Response) 
     }
 };
 
+// GET /Transactions past two days data business logic
 export const getPastTwoDaysTransactions = async (_req: Request, res: Response) => {
     const startDate = dayjs().subtract(2, 'day').startOf('day'); // 00:00:00 two days ago
     const endDate = dayjs().subtract(1, 'day').endOf('day');     // 23:59:59 yesterday
