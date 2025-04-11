@@ -88,6 +88,7 @@ export const getPastTwoDaysTransactions = async (_req: Request, res: Response) =
 export const getWorkStaff = async (_req: Request, res: Response) => {
   
     try {
+        console.log ("hello") 
         res.json({
             message: "hello world"
         });
